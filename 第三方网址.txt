@@ -1,0 +1,7 @@
+http://momentjs.cn/  日期处理组件
+
+https://dev.dcloud.net.cn/mui/   前端手机端框架
+
+https://www.swiper.com.cn/   轮播图组件
+
+https://www.aicesu.cn/doc/animate.html   动画组件
