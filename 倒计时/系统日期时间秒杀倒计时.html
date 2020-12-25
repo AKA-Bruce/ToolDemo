@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mytime{ line-height: 40px; width: 300px; margin: 0 auto;}
+    </style>
+</head>
+<body>
+    
+       
+      <div class="mytime jsTime" data-time="2020-11-22 16:58:00">时间1</div>
+      <div class="mytime jsTime" data-time="2020-11-28 18:00:02">时间2</div>
+      <div class="mytime jsTime" data-time="2020-11-28 19:01:31">时间3</div>
+      <div class="mytime jsTime" data-time="2020-11-28 05:05:15">时间4</div>
+      <div class="mytime jsTime" data-time="2020-11-28 09:01:43">时间5</div>
+      <script>
+        const countdown = {
+         domList : document.querySelectorAll('.jsTime'),
+        //  补0 格式化时间 加入传进来的数字只有一位数就补0 两位数就原地返回啥也不做
+         formatNumber(n){
+          n = n.toString();
+          return n[1] ? n : '0' + n;
+         },
+         setTime(dom){
+          //获取设置的时间 如：2019-3-28 14:00:00
+          const leftTime = new Date(dom.getAttribute('data-time')) - new Date();
+          if (leftTime >= 0) {
+           const d = Math.floor(leftTime / 1000 / 60 / 60 / 24);
+           const h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
+           const m = Math.floor(leftTime / 1000 / 60 % 60);
+           const s = Math.floor(leftTime / 1000 % 60);
+           dom.innerHTML = `剩余${ d > 0 ? d + '天' : '' }${ [h, m, s].map(this.formatNumber).join(':') }`;
+          } else {
+           clearInterval(dom.timer);
+           dom.innerHTML = '秒杀已结束';
+          }
+         },
+         start(){
+          this.domList.forEach((dom) => {
+           this.setTime(dom);
+           dom.timer = setInterval(() => {
+            this.setTime(dom);
+           }, 1000);
+          });
+         },
+        };
+        countdown.start();
+       </script>
+</body>
+</html>

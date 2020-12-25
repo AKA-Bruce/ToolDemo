@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+
+  <style>
+    .box{
+      width: 1000px;
+      height: 460px;
+      position: relative;
+    }
+    /* 设置图片样式开始 */
+    .box-img{
+      position: absolute;
+      /* 隐藏全部 */
+      opacity: 0;
+    }
+    /* 通过css的选择器 ：nth-child来指定改变某一个元素的样式 */
+    /* 显示第一张图片 */
+    .box-img:nth-child(1){
+      opacity: 1;
+    }
+    /* 设置图片样式结束 */
+
+
+
+    /* 设置左箭头开始 */
+    .box-left{
+      width: 35px;
+      /* 设置高度 */
+      height: 70px;
+      position: absolute;
+      /* 设置背景色 */
+      /* background-color: #00000050; */
+      /* 设置文本的颜色 */
+      color: #ccc;
+      /* 设置距离顶部190px的地方 */
+      top: 190px;
+      /* 设置圆角-根据左上 右上 右下 坐下 顺时针设置 */
+      border-radius: 0 5px 5px 0;
+      /* 将<水平距离居中 */
+      text-align: center;
+      /* 将< 垂直居中 --通过行高设置line-height垂直居中，要和高度一致才能实现这个效果*/
+      line-height: 70px;
+      /* 将内容(文本）<放大 */
+      font-size: 20px;
+    }
+
+    	/* 左设置鼠标悬停效果 :hover */
+			.box-left:hover{
+				background-color: #00000050;
+				color: #fff;
+				/* 设置鼠标触碰按钮时,箭头变为小手 */
+				cursor: pointer;
+			}
+
+/* 设置右箭头开始 */
+.box-right{
+      width: 35px;
+      /* 设置高度 */
+      height: 70px;
+      position: absolute;
+      /* 设置背景色 */
+      /* background-color: #00000050; */
+      /* 设置文本的颜色 */
+      color: #ccc;
+      /* 设置距离顶部190px的地方 */
+      top: 190px;
+      /* 设置圆角-根据左上 右上 右下 坐下 顺时针设置 */
+      border-radius: 5px 0 0 5px;
+      /* 将<水平距离居中 */
+      text-align: center;
+      /* 将< 垂直居中 --通过行高设置line-height垂直居中，要和高度一致才能实现这个效果*/
+      line-height: 70px;
+      /* 将内容(文本）<放大 */
+      font-size: 20px;
+      /* 设置距离右边为0的地方定位 */
+      right: 0;
+    }
+
+    .box-right:hover{
+				background-color: #00000050;
+				color: #fff;
+				cursor: pointer;
+			}
+
+    /* 设置指定圆点的样式 */
+    .box-zhiding{
+      /* 显示出来*/
+      position: absolute;
+       /* 设置整体距离底部和右边的距离 */
+	    bottom: 50px;
+	    right: 90px;
+    }
+    .box-zhiding>ul{
+      /* 把ul默认的样式去掉 */
+      list-style: none;
+      /* 设置内边距为0 */
+      padding: 0;
+      /* 设置外边距为0 */
+	    margin: 0;
+    }
+    .box-zhiding li{
+      width: 12px;
+     height: 12px;
+     /* 设置圆角 */
+	   border-radius: 100%;
+    background-color: #ccc;
+    /* 设置让每一个li横向排版 */
+    float: left;
+    /* 给每一个li设置右外边距 */
+    margin-right: 10px;
+    }
+ /* 默认设置第一个圆点是白色代表第一张图片 */
+ .box-zhiding li:nth-child(1){
+	 background-color: #fff;
+ }
+
+ .box-zhiding li:hover{
+	 background-color: #fff;
+ }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <!-- 添加图片部分 -->
+    <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/64485128ae7c0bfd980c694f092fe25f.jpg?w=2452&h=920" width="1000" height="460"></div>
+    <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0ef4160c861b998239bce9adb82341e7.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1000" height="460"></div>
+    <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ec39b7eb802279eb693520915afdfa07.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1000" height="460"></div>
+    <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d00e132d1b4fd7a796b35bcfe54bc2c8.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1000" height="460"></div>
+    <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d01b4f4d20d1c909454b296f34143004.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1000" height="460"></div>
+    <!--添加左右箭头部分 -->
+    <div class="box-left">&lt;</div>
+    <div class="box-right">&gt;</div>
+    <!-- 添加指定图片的圆点 -->
+    <div class="box-zhiding">
+      <ul>
+        <li class="btn"></li>
+        <li class="btn"></li>
+        <li class="btn"></li>
+        <li class="btn"></li>
+        <li class="btn"></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    $(function(){
+     var index=0;
+     $('.box-left').click(function(){
+       if(index==0){
+         index=$('.box-img').length-1;
+         $('.box-img').css("opacity","0");
+         $('.box-img').eq(index).css("opacity","1");
+         $('.btn').css("background-color","#ccc");
+         $('.btn').eq(index).css("background-color","#fff");
+       }else{
+         index--;
+         $('.box-img').css("opacity","0");
+         $('.box-img').eq(index).css("opacity","1");
+         $('.btn').css("background-color","#ccc");
+         $('.btn').eq(index).css("background-color","#fff");
+       }
+       
+				
+     })
+     $('.box-right').click(function(){
+					// 判断如果等于最后一张图片时,就要变回第一张图片
+					if(index==$('.box-img').length-1){
+						index=0;
+						$('.box-img').css("opacity","0");
+						$('.box-img').eq(index).css("opacity","1");
+						//给每一个可能触发的事件都加上这个圆点事件
+						//4.6当显示当前图片时,其他圆点变成灰色
+						$('.btn').css("background-color","#ccc");
+						//4.7当显示当前图片时,圆点对应的改变颜色
+						$('.btn').eq(index).css("background-color","#fff");
+						//重启定时器
+						dingshiqi();
+					}else{
+						index++;
+						$('.box-img').css("opacity","0");
+						$('.box-img').eq(index).css("opacity","1");
+						//给每一个可能触发的事件都加上这个圆点事件
+						//4.6当显示当前图片时,其他圆点变成灰色
+						$('.btn').css("background-color","#ccc");
+						//4.7当显示当前图片时,圆点对应的改变颜色
+						$('.btn').eq(index).css("background-color","#fff");
+						
+					}
+				})
+				
+    })
+  </script>
+</body>
+</html>

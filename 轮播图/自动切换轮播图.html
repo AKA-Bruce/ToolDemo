@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>    
+    <style>
+    .box{
+        width: 1000px;
+        height: 460px;
+        position: relative;
+        
+    }
+    .box-img{
+        /* 图片从最后一张叠上来 */
+        position: absolute;
+        /* 让他们都显示在距离头部和左侧0的位置显示 */
+        top: 0;
+        left: 0;
+        transition: all 1.5s;
+    }
+    .box-img:nth-child(1){
+        opacity: 1;
+    }
+    .zhiding{
+        position: absolute;
+        /* 距离底部50px */
+        bottom: 30px;
+        /* 距离右边100px */
+        right: 100px;
+    }
+    .zhiding>ul{
+        list-style: none;
+        
+    }
+    .zhiding li{
+        width: 12px;
+        height: 12px;
+        background-color: #ccc;
+        border-radius: 100%;
+        float: left;
+        margin-right: 12px;
+        
+    }
+    /* 默认设置li的第一个圆点是白色 */
+    .zhiding li:nth-child(1){
+        background-color: #fff;
+        
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+            <div class="box-img" ><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/64485128ae7c0bfd980c694f092fe25f.jpg?w=2452&h=920" width="1000" height="460"></div>
+            <div class="box-img" ><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0ef4160c861b998239bce9adb82341e7.jpg?thumb=1&w=1839&h=690&f=webp&q=90" width="1000" height="460"></div>
+            <div class="box-img" ><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/aea5db5f69f794cdb20f3a382d868bbb.jpg?thumb=1&w=1839&h=690&f=webp&q=90" width="1000" height="460"></div>
+            <div class="box-img" ><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d00e132d1b4fd7a796b35bcfe54bc2c8.jpg?thumb=1&w=1839&h=690&f=webp&q=90" width="1000" height="460"></div>
+            <div class="box-img" ><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d01b4f4d20d1c909454b296f34143004.jpg?thumb=1&w=1839&h=690&f=webp&q=90" width="1000" height="460"></div>
+            <div class="zhiding">
+                <ul>
+                    <li class="btn"></li>
+                    <li class="btn"></li>
+                    <li class="btn"></li>
+                    <li class="btn"></li>
+                    <li class="btn"></li>
+                </ul>
+            </div>
+        </div>
+    <script>
+    $(function(){
+        var index=0;//获取当前索引
+        // var index1=$(this).index();//获取当前的圆点的索引
+        // index=index1;
+        setInterval(function(){
+            // 判断如果当前索引等于最后一张照片时，就重新弄赋值回第一张照片
+            if(index==$('.box-img').length-1){
+                index=0;
+                //先隐藏所有照片
+                $('.box-img').css("opacity","0");
+                // 再通过.eq(index)获取当前的照片的索引在把它显示出来
+                $('.box-img').eq(index).css("opacity","1");
+                $('.btn').css("background-color","#ccc");
+                $('.btn').eq(index).css("background-color","#fff");
+            }else{
+                // 否者索引加加
+                index++;
+                // 设置其他图片为透明,先隐藏所有图片,再展示,就达到一个切换的效果
+                $('.box-img').css("opacity","0");
+                $('.box-img').eq(index).css("opacity","1");
+                //当显示当前图片时,其他圆点变成灰色
+                $('.btn').css("background-color","#ccc");
+                //当显示当前图片时,圆点对应的改变颜色
+                $('.btn').eq(index).css("background-color","#fff");
+            }
+           
+        },2000);
+
+    })
+    </script>
+</body>
+</html>

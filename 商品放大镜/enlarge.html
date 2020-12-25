@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>放大镜</title>
+    <link rel="stylesheet" href="css/enlarge.css" />
+  </head>
+  <body onload="enlarge()">
+  <!-- <body> -->
+    <div id="oBox" class="box">
+      <div id="oSmall" class="small">
+        <img src="img/md/1.jpg" alt="" />
+        <div id="oMask" class="mask" style="display: none;"></div>
+      </div>
+      <div id="oList" class="list">
+        <div id="oList_d">
+          <a href="javascript:arrowLeft();" class="arrow-prev" ><i  class="arrow-left"></i></a>
+          <a href="javascript:arrowRight();" class="arrow-next" ><i  class="arrow-right"></i></a>
+          <div id="oList_u_box">
+            <ul id="oList_u">
+              <!-- <li id="oList_u_l"><img src="img/sm/1-min.jpg" alt="" /></li>
+              <li id="oList_u_l"><img src="img/sm/2-min.jpg" alt="" /></li>
+              <li id="oList_u_l"><img src="img/sm/3-min.jpg" alt="" /></li>
+              <li id="oList_u_l"><img src="img/sm/4-min.jpg" alt="" /></li>
+              <li id="oList_u_l"><img src="img/sm/5-min.jpg" alt="" /></li>
+              <li id="oList_u_l"><img src="img/sm/6-min.jpg" alt="" /></li>
+              <li id="oList_u_l"><img src="img/sm/7-min.jpg" alt="" /></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="oBig" class="big" style="display: none;">
+        <!-- <div id="oBig" class="big" > -->
+        <img src="img/lg/1-big.jpg" alt="" />
+      </div>
+    </div>
+    <!-- <script src="js/enlarge.js"></script> -->
+    <script src="js/enlarge1.js"></script>
+  </body>
+</html>

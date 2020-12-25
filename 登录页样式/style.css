@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.hero{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(10, 10, 10, 0.4),rgba(253, 251, 251, 0.4)),url(banner.jpg);
+    background-position: center;
+    background-size: cover;
+    /* 当设置值为cover可以呈现出图片铺满浏览器内容的视觉效果 */
+    position: absolute;
+/* position 属性规定元素的定位类型。
+说明
+这个属性定义建立元素布局所用的定位机制。任何元素都可以定位，不过绝对或固定元素会生成一个块级框，而不论该元素本身是什么类型。相对定位元素会相对于它在正常流中的默认位置偏移。
+
+absolute 
+成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。
+元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
+
+fixed	
+生成绝对定位的元素，相对于浏览器窗口进行定位。
+元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
+
+relative	
+生成相对定位的元素，相对于其正常位置进行定位。
+因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。
+
+static	默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。
+inherit	规定应该从父元素继承 position 属性的值。
+ */
+}
+.form-box{
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    /* margin设置一个元素所有外边距的宽度，或者设置各边上外边距的宽度。 上右下左
+
+块级元素的垂直相邻外边距会合并，而行内元素实际上不占上下外边距。行内元素的的左右外边距不会合并。同样地，浮动元素的外边距也不会合并。允许指定负的外边距值，不过使用时要小心。
+auto	浏览器计算外边距。
+length	规定以具体单位计的外边距值，比如像素、厘米等。默认值是 0px。
+%	规定基于父元素的宽度的百分比的外边距。
+inherit	规定应该从父元素继承外边距。 */
+    background: #fff;
+    /* 透明度 
+    css设置div背景透明有两种方法：第一种使用opacity：0~1，这个方法有个缺点，就是内容也会跟着透明；
+    第二种方法就是background-color:rgba(0,0,0,0~1)，使用这个方法就只会设置div背景透明，而不会影响到div里的内容。*/
+    opacity:0.77;
+    padding: 5px;
+    /* padding设置所有内边距属性 */
+    overflow: hidden;
+    /* overflow 属性规定当内容溢出元素框时发生的事情。
+    visible	默认值。内容不会被修剪，会呈现在元素框之外。
+hidden	内容会被修剪，并且其余内容是不可见的。
+scroll	内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。
+auto	如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。
+inherit	规定应该从父元素继承 overflow 属性的值。
+    在CSS样式操作用，常用的三种，一.解决操出边界，overflow:hidden;可以让超出部分裁剪掉。二.解决子元素float浮动，父元素没有高度。三.解决外边距塌陷，就是子元素的margin-top不起作用。 */
+}
+.button-box{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    /* box-shadow 属性向框添加一个或多个阴影。
+    提示：请使用 border-image-* 属性来构造漂亮的可伸缩按钮！ */
+    border-radius: 30px;
+    /* 向 div 元素添加圆角边框： */
+}
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    /* linear-gradient背景颜色渐变 to right*/
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.social-icons{
+    margin: 30px auto;
+    text-align: center;
+    /* text-align元素中的文本的水平对齐方式 */
+}
+.social-icons img{
+    width: 30px;
+    margin: 0 12px;
+    box-shadow: 0 0 20px 0 #7f7f7f3d;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.input-group{
+    top:180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+.input-text1{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+.checkbox{
+    margin: 30px 10px 30px 0;
+
+}
+span{
+    color: #777;
+    font-size: 14px;
+    bottom: 66px;
+    /* bottom 属性规定元素的底部边缘。该属性定义了定位元素下外边距边界与其包含块下边界之间的偏移 */
+    position: absolute;
+}
+
+#login{
+    left: 50px;
+}
+#register{
+    left: 450px;
+}

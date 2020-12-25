@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>小米商城 - 小米10 Pro、Redmi Note 9、小米MIX Alpha，小米电视官方网站</title>
+		<link rel="icon" type="image/x-icon" href="./img/url-title.ico" />
+		<link rel="stylesheet" type="text/css" href="./css/main.css" />
+		<link rel="stylesheet" type="text/css" href="./img/icon-font/iconfont.css" />
+
+	</head>
+
+	<body>
+		<div id="container">
+			<!--头部导航栏-->
+			<div id="header">
+				<a href="#" class="poster"></a>
+				<div id="nav">
+					<ul class="left_info">
+						<a v-for="(item, index) in headerNav" :class="{wechat:item=='下载app'}">{{ item }}
+                            <div class="img" v-if="item=='下载app'">
+                               <span class="direction"></span>
+                               <img src="./img/wechat.png">
+                            </div>				
+							<span v-if="index<headerNav.length-1">&nbsp;|&nbsp;&nbsp;</span>
+						</a>
+					</ul>
+					<ul class="right_info">
+						<a>登陆<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span></a>
+						<a>注册<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span></a>
+						<a>消息通知<span>&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+						<a class="shopping"><i class="iconfont">&#xe628;</i>&nbsp;购物车（0）</a>
+                   </ul>
+				</div>
+			</div>
+			<div id="content">
+				<!--内容区顶部导航栏-->
+				<div id="navMainList">
+					<div class="mainLogo">
+						<span class="left_icon"><i class="iconfont">&#xe661;</i></span>
+						<span class="left_title"></span>
+					</div>
+					<ul class="mainList">
+						<a v-for="(item, index) in navMainList">{{ item }}</a>
+					</ul>
+					<form action="http://localhost:8080/search">
+						<input type="text" placeholder="小米10" id="nav_search_inp"/>
+						<label for="nav_search_inp" class="searchBtn">
+							<i class="iconfont">&#xe670;</i>
+						</label>
+					</form>
+				</div>
+
+				<div id="main_info">
+					<ul class="main_lbt">
+						<li><img src="./img/main_lbt5.webp"></li>
+						<li><img src="./img/main_lbt1.jpg"></li>
+						<li><img src="./img/main_lbt2.webp"></li>
+						<li><img src="./img/main_lbt3.webp"></li>
+						<li><img src="./img/main_lbt4.webp"></li>
+						<li><img src="./img/main_lbt5.webp"></li>
+						<li><img src="./img/main_lbt1.jpg"></li>
+					</ul>
+					<ul class="lbt_list_radio" @click="click_radio">
+						<a></a>
+						<a></a>
+						<a></a>
+						<a></a>
+						<a></a>
+					</ul>
+                    <!--内容区左侧导航栏-->
+					<ul class="lside_nav">
+						<li v-for="(nav, index) in lside_nav" :class="{first_top:index==0}">
+							<span class="nav_title">{{ nav.type }}</span>
+							<ul class="lside_nav_list">
+								<a href="#" v-for="(item, index) in lside_nav[0].phones">
+									<img :src="computed_imgName(index)">
+									<span>{{item}}</span>
+								</a>
+
+							</ul>
+							<span class="nav_title_next"><i class="iconfont">&#xe601;</i></span>
+						</li>
+					</ul>
+					<span class="lbt_btn prev" @click="lbt_prev_fn()"><i class="iconfont">&#xe600;</i></span>
+					<span class="lbt_btn next" @click="lbt_next_fn()"><i class="iconfont">&#xe601;</i></span>
+				</div>
+				<div id="bottom-content">
+					<ul class="card">
+						<li v-for="(item) in bottom_left_nav">
+							<img :src="item.imgSrc">
+							<span>{{item.title}}</span>
+						</li>
+					</ul>
+					<div class="product-type">
+						<div><img src="./img/bottom_type_1.jpg" /></div>
+						<div><img src="./img/bottom_type_2.jpg" /></div>
+						<div><img src="./img/bottom_type_3.jpg" /></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/vue-2.6.js"></script>
+		<script src="js/myLib.js"></script>
+		<script src="js/mian.js"></script>
+	</body>
+
+</html>

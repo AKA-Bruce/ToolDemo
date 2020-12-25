@@ -1,0 +1,112 @@
+.box{
+				width: 1000px;
+				height: 460px; 
+				/* 相对定位，box相对于html根元素定位 ，一般设置在父元素*/
+			 	position: relative;
+			}
+			/* 设置图片部分 */
+			.box-img{
+				/* 绝对定位，找当前设置了relative的定位 ，一般设置在子元素,就把所有图片浮动上来了*/
+				position: absolute;
+				/* 让所有的图片都在顶部为0和左边为0的地方显示 */
+				top:0;
+				left: 0;
+				/* 设置除了第一张图片以外的图片都透明 */
+				opacity: 0;
+				/* 设置从第一张到下一张的图片过渡的动画 */
+				transition: all 1.5s;
+			}
+			/* 设置第一张图片不透明 */
+			.box-img:nth-child(1){
+				opacity: 1;
+			}
+			
+			
+			/* 左边箭头 */
+			.box-left{
+				/* 设置绝对定位，才能把图标显示出来 */
+				position: absolute;
+				width: 35px;
+				height: 70px;
+				/* 一开始为了方便看，现在这里面设置最后显示的样式 */
+				/* background-color: #00000050; */
+				color: #ccc;
+				/* 相对于box-img的位置距离顶部160px */
+				top: 160px;
+				/* 设置圆角 :左上 右上 右下  左下*/
+				border-radius: 0 5px 5px 0;
+				/* 把里面的小于号水平居中 */
+				text-align: center;
+				/* 把里面的小于号垂直居中，与height的值一样就会实现垂直居中 */
+				line-height: 70px;
+				/* 设置大小 */
+				font-size: 20px;
+			}
+			/* 左设置鼠标悬停效果 :hover */
+			.box-left:hover{
+				background-color: #00000050;
+				color: #fff;
+				/* 设置鼠标触碰按钮时,箭头变为小手 */
+				cursor: pointer;
+			}
+			
+			
+			/* 右边箭头 */
+			.box-right{
+				/* 设置绝对定位，才能把图标显示出来 */
+				position: absolute;
+				width: 35px;
+				height: 70px;
+				color: #ccc;
+				/* 相对于box-img的位置距离顶部160px */
+				top: 160px;
+				/* 设置圆角 :左上 右上 右下  左下*/
+				border-radius: 5px 0 0 5px;
+				/* 把里面的小于号水平居中 */
+				text-align: center;
+				/* 把里面的小于号垂直居中，与height的值一样就会实现垂直居中 */
+				line-height: 70px;
+				/* 设置大小 */
+				font-size: 20px;
+				/* 右边应该设置right:0 */
+				right: 0;
+			}
+			.box-right:hover{
+				background-color: #00000050;
+				color: #fff;
+				cursor: pointer;
+			}
+			
+ /* 指定图片小圆点部分*/ 
+ .box-zhiding{
+	 position: absolute;
+	 /* 设置整体距离底部和右边的距离 */
+	 bottom: 110px;
+	 right: 90px;
+ }
+ .box-zhiding>ul{
+	 /* 设置内外边距 */
+	 padding: 0;
+	 margin: 0;
+	 /* 设置ul的样式,一般都设置为none */
+	 list-style: none;
+ }
+ .box-zhiding li{
+	 width: 12px;
+	 height: 12px;
+	 border-radius: 100%;
+	 background-color: #ccc;
+	 /* 设置全部向左浮动 */
+	 float: left;
+	 /* 设置每一个li的右边距的大小 */
+	 margin-right: 15px;
+ }
+ /* 默认设置第一个圆点是白色 */
+ .box-zhiding li:nth-child(1){
+	 background-color: #fff;
+ }
+ .box-zhiding li:hover{
+	 background-color: #fff;
+ }
+ 
+ 

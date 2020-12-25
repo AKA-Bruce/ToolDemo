@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"></link>
+  </head>
+  <body>
+      <div class="hero">
+          <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+
+                <button type="button" class="toggle-btn" onclick="login()">登录</button>
+                <button type="button" class="toggle-btn" onclick="register()">注册</button>
+            </div>
+            
+            <form id="login" class="input-group">
+                <input type="text" class="input-text1" placeholder="User Id" required></input>
+                <input type="text" class="input-text1" placeholder="Enter Password" required></input>
+                <input type="checkbox" class="checkbox"><span>记住密码</span></input>
+                <button type="submit" class="submit-btn">登录</button>
+            </form>
+            <form id="register" class="input-group">
+                <input type="text" class="input-text1" placeholder="User Id" required></input>
+                <input type="email" class="input-text1" placeholder="Email Id" required></input>
+                <input type="text" class="input-text1" placeholder="Enter Password" required></input>
+                <input type="checkbox" class="checkbox"><span>同意注册协议</span></input>
+                <button type="submit" class="submit-btn">注册</button>
+            </form>
+
+            <div class="social-icons">
+                <img src="timg.jpg">
+                <img src="fb.jpg">
+                <img src="tix.png">
+            </div>
+          </div>
+
+      </div>
+
+
+
+      <script>
+          var x = document.getElementById("login")
+          var y = document.getElementById("register")
+          var z = document.getElementById("btn")
+
+          function register(){
+              x.style.left = "-400px"
+              y.style.left = "50px"
+              z.style.left = "110px"
+
+          }
+          function login(){
+              x.style.left = "50px"
+              y.style.left = "450px"
+              z.style.left = "0"
+
+          }
+      </script>
+  </body>
+</html>

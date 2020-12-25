@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* body {
+  background-color: black;
+} */
+#oBox {
+  width: 452px;
+  height: 580px;
+  /* background: rgb(138, 170, 102); */
+  /* border: 1px solid #aaaa ; */
+  margin-top: 100px;
+  margin-left: 200px;
+}
+.small {
+  width: 450px;
+  height: 450px;
+  border: 1px solid #aaaa;
+  position: relative;
+}
+.mask {
+  width: 281.25px;
+  height: 281.25px;
+  background: rgba(255, 255, 0, 0.226);
+  position: absolute;
+  /* position: relative; */
+  top: 0;
+  left: 0;
+}
+
+.small img {
+  position: relative;
+  /* margin-bottom: 2rem; */
+}
+
+.list {
+  width: 450px;
+  height: 58px;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-top: 2rem;
+}
+.list #oList_d a.arrow-prev {
+  display: block;
+  width: 22px;
+  height: 32px;
+  float: left;
+  position: absolute;
+  cursor: pointer;
+  top: 25%;
+  opacity: 0.7;
+}
+.list #oList_d a.arrow-next {
+  display: block;
+  width: 22px;
+  height: 32px;
+  float: right;
+  position: absolute;
+  cursor: pointer;
+  top: 25%;
+  opacity: 0.5;
+  right: 0;
+}
+.list #oList_d a.arrow-prev:hover {
+  opacity: 1;
+}
+.list #oList_d a.arrow-next:hover {
+  opacity: 1;
+}
+.list #oList_d .arrow-prev .arrow-left {
+  display: block;
+  width: 22px;
+  height: 32px;
+  background-image: url("../img/left.png");
+  position: relative;
+  left: 10px;
+}
+
+.list #oList_d .arrow-next .arrow-right {
+  display: block;
+  width: 22px;
+  height: 32px;
+  background-image: url("../img/right.png");
+  position: relative;
+  right: 10px;
+}
+#oList_u_box {
+  position: relative;
+  width: 380px;
+  height: 58px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+oList_u_box ul li img {
+  width: 54px;
+  height: 54px;
+}
+#oList_u {
+  position: absolute;
+  width: 532px;
+  height: 58px;
+  top: 0px;
+  left: 0px;
+  list-style-type: none;
+}
+#oList_u #oList_u_l {
+  float: left;
+  height: 54px;
+  margin: 0 9px;
+  border: 2px solid transparent;
+}
+#oList_u #oList_u_l:hover {
+  border: 2px solid red;
+}
+.big {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #717171;
+  position: relative;
+  top: -542.2px;
+  left: 451.2px;
+  overflow: hidden;
+}
+.big img {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+

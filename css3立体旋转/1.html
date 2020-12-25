@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立方体旋转</title>
+    <style>
+		*{margin: 0;padding: 0;}
+		#content{
+			
+			width: 100%;height:770px;
+			margin: 0 auto;
+			background:url(-1ac6cd831ba1f1e1.png);
+			position: fixed;
+			top:-30px;
+			color:#fff;font-size: 12px;
+			
+			
+		}
+		.black{
+			/* ①尺寸，大体位置 */
+			width: 254px;height: 277px;
+			margin-top:250px;
+			margin-left:1500px;
+			/* ②边框，背景 */
+			background:rgba(0,0,0,.3);
+			/* ③文本所有样式 */
+			/* ④微调（margin,padding） */
+			padding:5px;
+		}
+		.black>table{width: 100%;}
+		.black>table p{font-size: 18px;}
+		.black>table a{color:#fff; text-decoration: none;}
+		.black>table hr{margin:5px 0;}
+		#uname,#upwd{
+			/* ①尺寸，大体位置 */
+			width: 100%;height: 37px;
+			/* ②边框，背景 */
+			border: 0;outline: 0;
+			
+			/* ③文本所有样式 */
+			font-size: 14px;
+			/* ④微调（margin,padding） */
+			padding-left: 25px;
+			box-sizing: border-box;
+			margin: 10px 0;
+		}
+		#msg{color:#f00;}
+		
+		button{
+			/* ①尺寸，大体位置 */
+			width: 100%;height: 37px;
+			/* ②边框，背景 */
+			border: 0;outline: 0;
+			border-radius: 3px;
+			background: #0aa1ed;
+			/* ③文本所有样式 */
+			color:#fff;font-size: 16px;
+			/* ④微调（margin,padding） */
+			margin-top: 10px;
+		}
+        html{
+            perspective: 800px;
+			/*定义 3d 元素距视图的距离 800*/
+        }
+
+        body{
+            background-color: #2a3a51;
+			
+        }
+        .cube{
+            width:200px;
+            height:200px;
+            margin: 150px auto;
+            transform-style: preserve-3d;
+			/*所有子元素在 3d 空间中呈现*/
+            animation: swap infinite 20s linear 2s;
+			/* 循环的用linear的方式播放 swap的播放时间20s*/
+        }
+
+        .cube > div{
+            width: 200px;
+            height: 200px;
+            opacity: .8;
+			/*不透明性*/
+            position: absolute;
+			/*absolute:相对于最近的且不是static定位的父元素来定位*/
+            transform-style: preserve-3d;
+            perspective: 400px;
+        }
+
+        img{
+            vertical-align: top;
+			/*垂直对齐图片*/
+        }
+
+        .box1{
+            transform: rotateY(90deg) translateZ(100px);
+			/*定义3d旋转 以y轴旋转90度 以z轴平移100px*/
+        }
+
+        .box2{
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .box3{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .box4{
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .box5{
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .box6{
+            transform: rotateY(0deg) translateZ(100px);
+        }
+
+        @keyframes swap{
+            from{
+                transform:rotateX(0) rotateZ(0)
+            }
+
+            to{
+                transform:rotateX(1turn) rotateZ(1turn)
+            }
+        }
+
+        @keyframes a1{
+            0%{
+                transform: translateZ(0px) scale(1) rotateZ(0deg);
+            }
+            20%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg) ;
+            }
+            70%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg);
+            }
+            80%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+            }
+            100%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                border: 0.5 solid black;
+            }
+
+
+
+
+        }
+
+        @keyframes a2{
+             /*电脑太卡*/
+            0%{
+                transform: translateZ(0px) scale(1) rotateZ(0deg);
+            }
+            10%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg) ;
+            }
+            25%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg);
+            }
+            30%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg);
+                height: 5px;
+                width: 5px;
+            }
+            35%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg);
+                height: 5px;
+                width: 5px;
+            }
+            40%{
+                border: none;
+                box-shadow: 5px 5px 5px blue, -5px -5px 5px blue, 5px -5px 5px blue, -5px 5px 5px blue;
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                height: 3px;
+                width: 3px;
+            }
+
+            60%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                height: 25px;
+                width: 25px;
+            }
+
+            65%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                box-shadow: none;
+                height: 25px;
+                width: 25px;
+            }
+            100%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                height: 25px;
+                width: 25px;
+            }
+        }
+
+        @keyframes a3{
+
+            /*直接卡死*/
+            0%{
+                transform: translateZ(0px) scale(1) rotateZ(0deg);
+            }
+            10%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg) ;
+            }
+            35%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg);
+            }
+            40%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+            }
+            50%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                border: 0.5 solid black;
+            }
+            55%{
+                transform: translateZ(0px) scale(1) rotateZ(0deg);
+            }
+            62.5%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg) ;
+            }
+            65%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg);
+            }
+            67.5%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg);
+                height: 0px;
+                width: 0px;
+            }
+            70%{
+                transform: translateZ(350px)  scale(0.3) rotateZ(720deg);
+                height: 5px;
+                width: 5px;
+            }
+            80%{
+                border: none;
+                box-shadow: 5px 5px 5px rgb(0, 132, 255), -5px -5px 5px rgb(0, 132, 255), 5px -5px 5px rgb(0, 132, 255), -5px 5px 5px rgb(0, 132, 255);
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                height: 5px;
+                width: 5px;
+            }
+
+            82.5%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                height: 25px;
+                width: 25px;
+            }
+
+            100%{
+                transform: translateZ(0px)  scale(1) rotateZ(0deg);
+                box-shadow: none;
+                height: 25px;
+                width: 25px;
+            }
+        }
+
+        @keyframes bo {
+
+            0%{
+                transform: rotateZ(0deg);
+            }
+            100%{
+                transform: rotateZ(360deg);
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+	<div id="content">
+		<table></table>
+		<div class="black">
+			<table>
+				<tr>
+					<td><p>登录</p></td>
+					<td align="right"><a href="#">新用户注册</a></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<hr>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="text" id="uname" placeholder="请输入用户名">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span id="msg">用户名不能为空</span>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="text" id="upwd" placeholder="请输入用户密码">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<input type="checkbox" id="auto">
+						<label for="auto">自动登录</label>
+					</td>
+					<td align="right">
+						<a href="#">忘记密码</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button onclick="copyText()">登录</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+    
+    <div class="cube">
+        <!-- 引入图片-->
+        <div class="box1 b">
+            <!-- <img src="./结构 表现 样式/img/立方体图片/1.jpg" > -->
+			<img src="1.jpg">
+        </div>
+        <div class="box2 b">
+            <!-- <img src="./结构 表现 样式/img/立方体图片/2.jpg" > -->
+			<img src="6.jpg" >
+        </div>
+        <div class="box3 b">
+            <!-- <img src="./结构 表现 样式/img/立方体图片/3.jpg" > -->
+			<img src="2.jpg" >
+        </div>
+        <div class="box4 b">
+            <!-- <img src="./结构 表现 样式/img/立方体图片/4.jpg" > -->
+			<img src="3.jpg" >
+
+        </div>
+        <div class="box5 b">
+            <!-- <img src="./结构 表现 样式/img/立方体图片/6.jpg" > -->
+			<img src="4.jpg" >
+
+        </div>
+        <div class="box6 b">
+            <!-- <img src="./结构 表现 样式/img/立方体图片/5.png" > -->
+			<img src="5.jpg" >
+
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+	
+	
+    var copyText = ()=>{
+		
+		document.getElementById("content").style.opacity=0.2;
+		
+        var arr = document.querySelectorAll(".b");
+
+        for(var n = 0 ; n < arr.length ; n++){
+
+            for(var r = 0 ; r < 8; r++){
+
+                for(var c = 0 ; c < 8 ; c++){
+				        
+				var divs = document.createElement("div");
+				/*获取所有的div的对象的集合*/
+				
+				/*设置关键样式*/
+                    divs.style.cssText = " transform-style: preserve-3d; animation: a3 100s ease-in infinite "+ (0.1*r*c+2) +"s; position:absolute; width:25px; height:25px; border:0.5px solid black; box-sizing: boder-box; background-image:url(./结构表现样式/img/立方体图片/"+(n+15)+".jpg); background-position:center;background-size:200px 200px;";
+                    arr[n].appendChild(divs);
+					
+					/*散开图片位置*/
+                    divs.style.left = c*25+"px";
+                    divs.style.top = r*25+"px";
+					
+                    divs.style.backgroundPositionX = -c*25 +"px";
+                    divs.style.backgroundPositionY = -r*25 +"px";
+
+                }
+            }
+        }
+    }
+    </script>
+</body>
+</html>

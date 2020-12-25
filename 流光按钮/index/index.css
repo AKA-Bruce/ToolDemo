@@ -1,0 +1,66 @@
+*{
+margin: 0; 
+padding: 0;   
+}
+
+/* 给背景设置颜色 */
+body{
+    background: #000;
+}
+
+a{
+    text-decoration: none;
+    /* 绝对定位 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* 给xy轴调位置 */
+    transform: translate(-50%,-50%);
+    font-size: 34px;
+    font-weight: bolder;
+    /* 给背景色设置线性渐变 */
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    /* 背景图片大小，让颜色变大4倍 */
+    background-size: 400%;
+    width: 400px;
+    line-height: 100px;
+    text-align: center;
+    height: 100px;
+    color: #fff;
+    border-radius: 50px;
+    z-index: 1;
+}
+
+/* 用伪元素给光体多加一层图层 */
+a::before{
+    /* 插入需要生成的内容 */
+    content:"";
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 50px;
+    /* 滤镜 让它变模糊*/
+    filter: blur(20px);
+    /* 让它在底层显示 */
+    z-index: -1;
+}
+/* 让第二背景颜色也流动起来 */
+a:hover::before{
+    animation: lgan 8s infinite;
+}
+/* 设置动画 */
+a:hover{
+    /* 给效果设置8s 并且让它无限循环 */
+    animation: lgan 8s infinite;
+}
+
+/* 定义动画的样式 */
+@keyframes lgan{
+    100%{
+        background-position: -400% 0;
+    }
+}

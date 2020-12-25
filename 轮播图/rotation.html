@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入外部css样式 -->
+		<link rel="stylesheet" href="./rotation.css">
+		<!-- 引入外部的jq库  
+					地址:https://www.jq22.com/jquery-info122
+					api文档地址:https://www.jquery123.com/
+		-->
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+		<!-- 
+		 body里的快捷键：div.box+tab  div.box-img>img+tab  .是类选择器，class写css的缩写
+		 style里的快捷键：h1000+tab
+		 -->
+		 
+		 <div class="box">
+			 <!-- 图片部分 ,图片的路径都是绝对路径,如果找不到图片那就代表别人把图片删了,换一种图片就可以-->
+			   <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/64485128ae7c0bfd980c694f092fe25f.jpg?w=2452&h=920" width="1000" heigth="460"> </div>
+				
+				 <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/aea5db5f69f794cdb20f3a382d868bbb.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1000" heigth="460"></div>
+				 <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d00e132d1b4fd7a796b35bcfe54bc2c8.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1000" heigth="460"></div>
+				 <div class="box-img"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0ef4160c861b998239bce9adb82341e7.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1000" heigth="460"></div>
+				<div class="box-img"> <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d01b4f4d20d1c909454b296f34143004.jpg?thumb=1&w=1226&h=460&f=webp&q=90" width="1000" heigth="460"></div>
+				 
+				<!-- 左右箭头部分 -->
+				<div class="box-left">&lt;</div>
+				<div class="box-right">&gt;</div>
+				<!-- 底部原点部分  快捷键:div.box-zhiding>ul>li*5+tab-->
+				<div class="box-zhiding">
+					<ul>
+						<li class='btn'></li>
+						<li class='btn'></li>
+						<li class='btn'></li>
+						<li class='btn'></li>
+						<li class='btn'></li>
+					</ul>
+				</div>
+		 
+</div>
+<!-- 2.编写自动播放
+	用到的css中的透明属性  opacity  值的范围0到1 ,0代表完全透明1代表不透明
+	还有js中的定时器
+	
+	默认一开始第一张图片是不透明,其他图片完全透明
+ -->
+<!-- 用于控制整个界面的js事件 -->
+		 <script type="text/javascript">
+		 	$(function(){
+				var index=0;//用于标记当前图片的索引,因为返回的是一个图片集合,所以从0开始
+				// 设置定时器setInterval,里面有两个参数,第一个是回调函数,第二个是毫秒数,设置每两秒切换一张图片
+				var f;
+				//用一个函数把定时器封装起来,需要就调用
+				function dingshiqi(){
+					f=setInterval(function(){
+						// 判断,如果index等于最后一张的时候,就让索引变回0
+						// $('.box-img').length整一个集合的长度,要减一,因为索引从0开始
+						if(index==$('.box-img').length-1){
+							index=0;
+							// 通过$()获取.box-img里面的所有元素,然后改变它的css样式,默认第一张图片不透明,就设置为完全透明,下一张图片不透明       .css(,)里面有两个参数,第一个是属性名,第二个是属性值
+							// 设置其他图片为透明,先隐藏所有图片,再展示,就达到一个切换的效果
+							$('.box-img').css("opacity","0");
+							// 设置下一张图片从透明变成不透明      .eq(index)获取索引值
+							$('.box-img').eq(index).css("opacity","1");
+							//给每一个可能触发的事件都加上这个圆点事件
+							//4.6当显示当前图片时,其他圆点变成灰色
+							$('.btn').css("background-color","#ccc");
+							//4.7当显示当前图片时,圆点对应的改变颜色
+							$('.btn').eq(index).css("background-color","#fff");
+						}else{
+							index++;
+							$('.box-img').css("opacity","0");
+							$('.box-img').eq(index).css("opacity","1");
+							//给每一个可能触发的事件都加上这个圆点事件
+							//4.6当显示当前图片时,其他圆点变成灰色
+							$('.btn').css("background-color","#ccc");
+							//4.7当显示当前图片时,圆点对应的改变颜色
+							$('.btn').eq(index).css("background-color","#fff");
+						}
+					},3000)
+				}
+				
+				
+				// 3.编写左右按钮的事件
+				// 3.1获取左边按钮并添加点击事件
+				$('.box-left').click(function(){
+					// 清除定时器
+					clearInterval(f);
+					// 当index等于0时,代表第一张图片,就要获取最后一张图片
+					if(index==0){
+						// 获取最后一张图片
+						index=$('.box-img').length-1;
+						$('.box-img').css("opacity","0");
+						$('.box-img').eq(index).css("opacity","1");
+						//给每一个可能触发的事件都加上这个圆点事件
+						//4.6当显示当前图片时,其他圆点变成灰色
+						$('.btn').css("background-color","#ccc");
+						//4.7当显示当前图片时,圆点对应的改变颜色
+						$('.btn').eq(index).css("background-color","#fff");
+						//重启定时器
+						dingshiqi();
+					}else{
+						index--;
+						$('.box-img').css("opacity","0");
+						$('.box-img').eq(index).css("opacity","1");
+						//给每一个可能触发的事件都加上这个圆点事件
+						//4.6当显示当前图片时,其他圆点变成灰色
+						$('.btn').css("background-color","#ccc");
+						//4.7当显示当前图片时,圆点对应的改变颜色
+						$('.btn').eq(index).css("background-color","#fff");
+						//重启定时器
+						dingshiqi();
+					}
+				})
+				//3.2获取右边按钮并添加事件
+				$('.box-right').click(function(){
+					//清除定时器
+					clearInterval(f);
+					//alert(1);//测试是否能实现
+					// 判断如果等于最后一张图片时,就要变回第一张图片
+					if(index==$('.box-img').length-1){
+						index=0;
+						$('.box-img').css("opacity","0");
+						$('.box-img').eq(index).css("opacity","1");
+						//给每一个可能触发的事件都加上这个圆点事件
+						//4.6当显示当前图片时,其他圆点变成灰色
+						$('.btn').css("background-color","#ccc");
+						//4.7当显示当前图片时,圆点对应的改变颜色
+						$('.btn').eq(index).css("background-color","#fff");
+						//重启定时器
+						dingshiqi();
+					}else{
+						index++;
+						$('.box-img').css("opacity","0");
+						$('.box-img').eq(index).css("opacity","1");
+						//给每一个可能触发的事件都加上这个圆点事件
+						//4.6当显示当前图片时,其他圆点变成灰色
+						$('.btn').css("background-color","#ccc");
+						//4.7当显示当前图片时,圆点对应的改变颜色
+						$('.btn').eq(index).css("background-color","#fff");
+						//重启定时器
+						dingshiqi();
+					}
+				})
+				
+				// 4.点击圆点指定对应的图片
+				//4.1获取全部圆点并为其添加点击事件
+				$('.btn').click(function(){
+				// 测试点击事件是否成功
+					//alert(1);
+					//当点击圆点时,就清除定时器
+					clearInterval(f);
+					//4.2获取当前图片的索引,每一个圆点对应相应的图片
+					// $(this) 用于获取当前的索引,并赋值给一个index1保存
+					var index1=$(this).index();
+					//4.3把当前的索引赋值给图片的索引,那就可以一一对应上了
+					 index=index1;
+					//4.4隐藏所有图片
+					$('.box-img').css("opacity","0");
+					//4.5显示当前点击的图片
+					$('.box-img').eq(index).css("opacity","1");
+					//4.6当显示当前图片时,其他圆点变成灰色
+					$('.btn').css("background-color","#ccc");
+					//4.7当显示当前图片时,圆点对应的改变颜色
+					$('.btn').eq(index).css("background-color","#fff");
+					//完成后就再调用定时器
+					dingshiqi();
+					
+				})
+				
+				
+			})
+		 </script>
+		 <!-- 注意:当同时使用自动切换和左右按钮时,会有一个快切的效果,一个不好的体验,此时我们就需要修改这个问题 ,当我点击左右按钮时,需要把定时器先清除,后面再开启,通过调用方法重启,即把定时器封装到一个函数中-->
+	</body>
+</html>
